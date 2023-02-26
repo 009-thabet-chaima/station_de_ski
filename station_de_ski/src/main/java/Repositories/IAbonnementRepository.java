@@ -10,7 +10,10 @@ public interface IAbonnementRepository {
     static Abonnement save(Abonnement a) {return a;}
 
     static Abonnement findById(long id) {
-    return ;}
+        Abonnement a =new Abonnement();
+
+
+        return a;}
 
     static void deletById(long id) {}
 

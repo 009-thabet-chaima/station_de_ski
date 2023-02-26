@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class AbonnementServiceImp implements IAbonnementService{
     //injection de dependence
-  //List<Abonnement> abonnements=new ArrayList<Abonnement>();
     @Autowired
     private  IAbonnementRepository abonnementRepository;
     @Override
@@ -19,9 +18,9 @@ public class AbonnementServiceImp implements IAbonnementService{
     @Override
     public Abonnement update(Abonnement A){return IAbonnementRepository.save(A);}
     @Override
-    public List<Abonnement> getAll()   {        return  abonnementRepository.findAll();     }
+    public List<Abonnement> getAll()   { return (List<Abonnement>) abonnementRepository.findAll();     }
    @Override
-    public entities.Abonnement getById(Long id) { return IAbonnementRepository.findById(id);}
+   public entities.Abonnement getById(Long id) { return IAbonnementRepository.findById(id);}
     @Override
    public Abonnement getById(long id){ return IAbonnementRepository.findById(id);}
     @Override
