@@ -12,10 +12,10 @@ import java.util.Set;
 public class Moniteur {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long numMoniteur;
-    public String nomM;
-    public String prenomM;
-    public LocalDate dateRecru;
+private Long numMoniteur;
+    private String nomM;
+    private String prenomM;
+    private LocalDate dateRecru;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Cours> cours;
 

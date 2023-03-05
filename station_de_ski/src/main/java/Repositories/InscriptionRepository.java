@@ -1,4 +1,7 @@
 package Repositories;
 
-public interface InscriptionRepository extends org.springframework.data.jpa.repository.JpaRepository<entities.Inscription, java.lang.Long> {
+import entities.Inscription;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InscriptionRepository extends JpaRepository<Inscription, Long> {
 }

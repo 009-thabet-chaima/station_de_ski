@@ -9,8 +9,8 @@ public class Inscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    public Long numinscription;
-    public int numSemaine;
+    private Long numinscription;
+    private int numSemaine;
 
 @ManyToOne
 Cours cours;

@@ -1,4 +1,7 @@
 package Repositories;
 
-public interface MoniteurRepository extends org.springframework.data.jpa.repository.JpaRepository<entities.Moniteur, java.lang.Long> {
+import entities.Moniteur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MoniteurRepository extends JpaRepository<Moniteur, Long> {
 }

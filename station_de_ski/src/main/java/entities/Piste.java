@@ -9,11 +9,11 @@ public class Piste {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long numPiste;
-    public String nomPiste;
-    public Couleur couleur;
-    public int longeur;
-    public int pente;
+    private Long numPiste;
+    private String nomPiste;
+    private Couleur couleur;
+    private int longeur;
+    private int pente;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Skieur>skieurs;

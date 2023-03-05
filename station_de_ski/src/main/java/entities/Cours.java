@@ -9,12 +9,12 @@ import java.util.Set;
 public class Cours {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long numCours;
-    public int niveau;
-    public TypeCours typeCours;
-    public Support support;
-    public Float prix;
-    public int creneau;
+    private Long numCours;
+    private int niveau;
+    private TypeCours typeCours;
+    private Support support;
+    private Float prix;
+    private int creneau;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "cours")
     private Set<Inscription>inscriptions;

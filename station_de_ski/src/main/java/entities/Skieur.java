@@ -15,11 +15,11 @@ public class Skieur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
 
-    public Long numSkieur;
-    public String nomS;
-    public String prenomS;
-    public LocalDate dateNaissance;
-    public String ville;
+    private Long numSkieur;
+    private String nomS;
+    private String prenomS;
+    private LocalDate dateNaissance;
+    private String ville;
    @OneToOne
    Abonnement abonnement;
 

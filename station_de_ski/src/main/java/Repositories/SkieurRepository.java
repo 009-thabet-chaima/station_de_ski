@@ -1,4 +1,7 @@
 package Repositories;
 
-public interface SkieurRepository extends org.springframework.data.jpa.repository.JpaRepository<entities.Skieur, java.lang.Long> {
+import entities.Skieur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SkieurRepository extends JpaRepository<Skieur, Long> {
 }
