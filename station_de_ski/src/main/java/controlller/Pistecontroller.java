@@ -19,9 +19,9 @@ public class Pistecontroller {
     public void add(@RequestBody Piste i){
         iPisteService.add(i);
     }
-    @PutMapping("/update")
-    Piste update(@RequestBody Piste I){
-        return iPisteService.update(I);
+    @PutMapping("/update/{id}")
+    Piste update(@RequestBody Piste I,@PathVariable Long id){
+        return iPisteService.update(I,id);
     }
 
     @GetMapping("/all")
@@ -29,11 +29,11 @@ public class Pistecontroller {
         return iPisteService.getAll();
     }
     @GetMapping("/get/{id}")
-    public Piste getById(@PathVariable("{id}") long id){
+    public Piste getById(@PathVariable Long id){
         return iPisteService.getById(id);
     }
     @DeleteMapping("/delete/{id}")
-    public void remove(@PathVariable("{id}") long id){
+    public void remove(@PathVariable Long id){
         iPisteService.remove(id);
     }
 

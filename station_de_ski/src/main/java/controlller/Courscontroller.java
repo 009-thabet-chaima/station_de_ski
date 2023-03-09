@@ -31,11 +31,11 @@ public class Courscontroller {
         return iCoursService.getAll();
     }
     @GetMapping("/get/{id}")
-    public Cours getById(@PathVariable("{id}") long id){
+    public Cours getById(@PathVariable long id){
         return iCoursService.getById(id);
     }
     @DeleteMapping("/delete/{id}")
-    public void remove(@PathVariable("{id}") long id){
+    public void remove(@PathVariable long id){
         iCoursService.remove(id);
     }
 

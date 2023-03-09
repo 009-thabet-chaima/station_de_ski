@@ -17,7 +17,6 @@ public class SkieurServiceImp implements ISkieurService{
     private SkieurRepository skieurRepository;
 
     @Override
-    //traitement qcq
     public void add(Skieur C){
 
         iskieurRepository.save(C);
@@ -49,7 +48,12 @@ public class SkieurServiceImp implements ISkieurService{
     public Skieur assignSkierToPiste(Long numSkieur, Long numPiste) {
         return null;
     }
-  // Piste piste = pisteRepository.findAll(numSkieur).orElse(othernull);
+
+    @Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return null;
+    }
+    // Piste piste = pisteRepository.findAll(numSkieur).orElse(othernull);
   // Assert.notNull(Piste,message"Piste not found ");
   // Skieur skieur = iskieurRepository.findAll(numSkieur).orElse(othernull);
   //     Assert.notNull(skieur,message"skieur not found ");
@@ -60,12 +64,12 @@ public class SkieurServiceImp implements ISkieurService{
   // skieur.setPiste(pistes);
   // skieurRepository.save(skieur);
   // return skieur;
-@Override
-    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
-        return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
+//Override
+//   public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
+////       return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
+//
+  ////  }//
 
-    }
-
-}
+//}
 
 }

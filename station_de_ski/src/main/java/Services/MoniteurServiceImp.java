@@ -19,13 +19,14 @@ public class MoniteurServiceImp implements IMoniteurService{
         moniteurRepository.save(m);
     }
     @Override
-    public void update(Moniteur m, Long id){
+    public Moniteur update(Moniteur m, Long id){
         Moniteur MoniteurFromDB = moniteurRepository.findById(id).orElse(null);
         MoniteurFromDB.setCours(MoniteurFromDB.getCours());
         MoniteurFromDB.setNumMoniteur(MoniteurFromDB.getNumMoniteur());
         MoniteurFromDB.setNomM(MoniteurFromDB.getNomM());
         MoniteurFromDB.setPrenomM(MoniteurFromDB.getPrenomM());
         MoniteurFromDB.setDateRecru(MoniteurFromDB.getDateRecru());
+    return MoniteurFromDB;
     }
     @Override
     public List<Moniteur> getALL(){

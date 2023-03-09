@@ -24,9 +24,9 @@ public class Skieurcontroller {
     public void add(@RequestBody Skieur S){
         iSkieurService.add(S);
     }
-    @PutMapping("/update")
-    Skieur update(@RequestBody Skieur s){
-        return iSkieurService.update(s);
+    @PutMapping("/update/{id}")
+    Skieur update(@RequestBody Skieur s,@PathVariable Long id){
+        return iSkieurService.update(s,id);
     }
 
     @GetMapping("/all")
@@ -34,11 +34,11 @@ public class Skieurcontroller {
         return iSkieurService.getAll();
     }
     @GetMapping("/get/{id}")
-    public Skieur getById(@PathVariable("{id}") long id){
+    public Skieur getById(@PathVariable Long id){
         return iSkieurService.getById(id);
     }
     @DeleteMapping("/delete/{id}")
-    public void remove(@PathVariable("{id}") long id){
+    public void remove(@PathVariable Long id){
         iSkieurService.remove(id);
     }
     @PutMapping("/{numSkieur}/{numPiste}")

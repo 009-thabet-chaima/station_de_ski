@@ -9,7 +9,7 @@ public interface IMoniteurService  {
 
     void add(Moniteur m);
 
-    void update(Moniteur m, Long id);
+    Moniteur update(Moniteur m, Long id);
 
     List<Moniteur> getALL();
 

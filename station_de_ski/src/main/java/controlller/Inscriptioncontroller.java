@@ -21,9 +21,9 @@ public class Inscriptioncontroller {
     public void add(@RequestBody Inscription i){
         iInscriptionService.add(i);
     }
-    @PutMapping("/update")
-    Inscription update(@RequestBody Inscription I){
-        return iInscriptionService.update(I);
+    @PutMapping("/update/{id}")
+    Inscription update(@RequestBody Inscription I,@PathVariable Long id){
+        return iInscriptionService.update(I,id);
     }
 
     @GetMapping("/all")
@@ -31,11 +31,11 @@ public class Inscriptioncontroller {
         return iInscriptionService.getAll();
     }
     @GetMapping("/get/{id}")
-    public Inscription getById(@PathVariable("{id}") long id){
+    public Inscription getById(@PathVariable Long id){
         return iInscriptionService.getById(id);
     }
     @DeleteMapping("/delete/{id}")
-    public void remove(@PathVariable("{id}") long id){
+    public void remove(@PathVariable Long id){
         iInscriptionService.remove(id);
     }
 
