@@ -13,20 +13,29 @@ public class PisteServiceImp implements IPisteService{
     private PisteRepository iPisteRepository;
 
     @Override
-    //traitement qcq
     public void add(Piste C){
+
         iPisteRepository.save(C);
     }
     @Override
-    public Piste update(Piste P){return iPisteRepository.save(P);}
+    public Piste update(Piste P,Long id){
+        Piste PisteFromDb = iPisteRepository.findById(id).orElse(null);
+        PisteFromDb.setNomPiste(PisteFromDb.getNomPiste());
+        PisteFromDb.setNumPiste(PisteFromDb.getNumPiste());
+        PisteFromDb.setPente(PisteFromDb.getPente());
+        PisteFromDb.setCouleur(PisteFromDb.getCouleur());
+        PisteFromDb.setLongeur(PisteFromDb.getLongeur());
+    return PisteFromDb;
+    }
     @Override
-    public List<Piste> getAll()   { return (List<Piste>) iPisteRepository.findAll();     }
+    public List<Piste> getAll()   {
+        return (List<Piste>) iPisteRepository.findAll();     }
     @Override
-    public entities.Piste getById(Long id) { return iPisteRepository.findById(id);}
+    public Piste getById(Long id){
+        return iPisteRepository.findById(id).orElse(null);}
     @Override
-    public Piste getById(long id){ return iPisteRepository.findById(id);}
-    @Override
-    public void remove(long id){
+    public void remove(Long id){
+
         iPisteRepository.deleteById(id);
     }
 

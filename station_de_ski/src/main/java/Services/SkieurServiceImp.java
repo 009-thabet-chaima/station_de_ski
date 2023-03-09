@@ -3,30 +3,44 @@ package Services;
 import Repositories.PisteRepository;
 import Repositories.SkieurRepository;
 import entities.Skieur;
+import entities.TypeAbonnement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class SkieurServiceImp implements ISkieurService{
     @Autowired
     private SkieurRepository iskieurRepository;
 @Autowired
-    private PisteRepository pisteRepository;
+    private SkieurRepository skieurRepository;
 
     @Override
     //traitement qcq
     public void add(Skieur C){
+
         iskieurRepository.save(C);
     }
     @Override
-    public Skieur update(Skieur C){return iskieurRepository.save(C);}
+    public Skieur update(Skieur C,Long id){
+        Skieur SkieurFromDb= skieurRepository.findById(id).orElse(null);
+        SkieurFromDb.setNumSkieur(SkieurFromDb.getNumSkieur());
+        SkieurFromDb.setInscriptions(SkieurFromDb.getInscriptions());
+        SkieurFromDb.setAbonnement(SkieurFromDb.getAbonnement());
+        SkieurFromDb.setDateNaissance(SkieurFromDb.getDateNaissance());
+        SkieurFromDb.setNomS(SkieurFromDb.getNomS());
+        SkieurFromDb.setPrenomS(SkieurFromDb.getPrenomS());
+        SkieurFromDb.setVille(SkieurFromDb.getVille());
+        return SkieurFromDb;
+    }
     @Override
-    public List<Skieur> getAll()   { return (List<Skieur>) iskieurRepository.findAll();     }
+    public List<Skieur> getAll()   {
+        return (List<Skieur>) iskieurRepository.findAll();     }
     @Override
-    public entities.Skieur getById(Long id) { return iskieurRepository.findById(id);}
-    @Override
-    public Skieur getById(long id){ return iskieurRepository.findById(id);}
+    public Skieur getById(Long id) {
+        return iskieurRepository.findById(id).orElse(null);}
+
     @Override
     public void remove(long id){
         iskieurRepository.deleteById(id);
@@ -46,7 +60,12 @@ public class SkieurServiceImp implements ISkieurService{
   // skieur.setPiste(pistes);
   // skieurRepository.save(skieur);
   // return skieur;
+@Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
+        return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
 
+    }
 
+}
 
 }

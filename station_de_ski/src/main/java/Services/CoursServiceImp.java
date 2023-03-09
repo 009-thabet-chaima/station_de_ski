@@ -12,23 +12,20 @@ public class CoursServiceImp implements ICoursService{
     private CoursRepository coursRepository;
     @Override
     //traitement qcq
-    public void add(Cours C){
-        coursRepository.save(C);
+    public Cours add(Cours C){
+       return coursRepository.save(C);
     }
     @Override
-    public Cours update(Cours C){return coursRepository.save(C);}
+    public Cours update(Cours C){
+        return coursRepository.save(C);}
     @Override
-    public List<Cours> getAll()   { return (List<Cours>) coursRepository.findAll();     }
-
+    public List<Cours> getAll()   {
+        return (List<Cours>) coursRepository.findAll();     }
     @Override
     public Cours getById(Long id) {
-        return null;
-    }
-
+        return coursRepository.findById(id).orElse(null);}
     @Override
-    public Cours getById(long id) { return coursRepository.findById(id).orElse(other:null);}
-    @Override
-    public void remove(long id){
+    public void remove(Long id){
         coursRepository.deleteById(id);
     }
 

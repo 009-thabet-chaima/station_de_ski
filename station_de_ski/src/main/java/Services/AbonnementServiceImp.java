@@ -1,41 +1,45 @@
 package Services;
 import Repositories.AbonnementRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import entities.Abonnement;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
-
 public class AbonnementServiceImp implements IAbonnementService{
     //injection de dependence
     @Autowired
-    private final AbonnementRepository abonnementRepository;
+    private  AbonnementRepository abonnementRepository;
     @Override
-    //traitement qcq
-    public void add(Abonnement A){
-        abonnementRepository.save(A);
+    public Abonnement add(Abonnement A){
+
+        return abonnementRepository.save(A);
     }
     @Override
-    public Abonnement update(Abonnement A){return abonnementRepository.save(A);}
+    public Abonnement update(Abonnement A, Long id){
+       Abonnement abonnement1  = abonnementRepository.findById(id).orElse(null);
+        abonnement1.setDateDébut(abonnement1.getDateDébut());
+        abonnement1.setDateFin(abonnement1.getDateFin());
+        abonnement1.setNumAbon(abonnement1.getNumAbon());
+        abonnement1.setPrixAboon(abonnement1.getPrixAboon());
+        return abonnement1;
+    }
     @Override
-    public List<Abonnement> getAll()   { return (List<Abonnement>) abonnementRepository.findAll();     }
+    public List<Abonnement> getAll()   {
+        return (List<Abonnement>) abonnementRepository.findAll();
+    }
     @Override
-   public Optional<Abonnement> getById(long id) { return abonnementRepository.findById(id);}
+   public Abonnement getById(Long id) {
+        return abonnementRepository.findById(id).orElse(null);
+    }
     @Override
-    public void remove(long id){
+    public void remove(Long id){
         abonnementRepository.deleteById(id);
     }
 
-    @Override
-    public Abonnement getById(Long id) {
-        return null;
-    }
+
 
 }
 

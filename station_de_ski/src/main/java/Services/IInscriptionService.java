@@ -7,10 +7,9 @@ import java.util.List;
 
 public interface IInscriptionService {
     void add(Inscription I);
-    Inscription update(Inscription I);
+    Inscription update(Inscription I,Long id);
     List<Inscription> getAll();
     Inscription getById(Long id);
-    abstract Inscription getById(long id);
-    void remove(long id);
+    void remove(Long id);
 
 }

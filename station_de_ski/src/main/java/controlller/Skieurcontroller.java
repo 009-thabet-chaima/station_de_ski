@@ -1,9 +1,12 @@
 package controlller;
 
+import Repositories.SkieurRepository;
 import Services.IAbonnementService;
 import Services.ISkieurService;
+import Services.SkieurServiceImp;
 import entities.Abonnement;
 import entities.Skieur;
+import entities.TypeAbonnement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +44,13 @@ public class Skieurcontroller {
     @PutMapping("/{numSkieur}/{numPiste}")
     Skieur assignSkierToPiste(Long numSkieur, Long numPiste){
         return iSkieurService.assignSkierToPiste( numSkieur,   numPiste);
+
+    }
+
+    @GetMapping("/get/subscription/{type}")
+
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
+        return iSkieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
 
     }
 
