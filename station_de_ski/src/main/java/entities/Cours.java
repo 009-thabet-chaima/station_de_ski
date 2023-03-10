@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +28,7 @@ public class Cours {
     private int creneau;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "cours")
-    private Set<Inscription>inscriptions;
+    private List<Inscription> inscriptions;
 
 
 }

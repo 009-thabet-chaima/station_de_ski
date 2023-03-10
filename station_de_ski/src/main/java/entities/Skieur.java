@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,6 +36,6 @@ private Long id;
         (cascade = CascadeType.ALL,mappedBy = "skieur")
     private Set<Inscription>inscriptions;
 @ManyToMany(mappedBy = "skieurs",cascade = CascadeType.ALL)
-    private Set<Piste>pistes;
+    private List<Piste> pistes;
 
 }

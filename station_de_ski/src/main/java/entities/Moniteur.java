@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,6 +27,6 @@ private Long numMoniteur;
     private String prenomM;
     private LocalDate DateRecru;
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Cours> cours;
+    private List<Cours> cours;
 
 }

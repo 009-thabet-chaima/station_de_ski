@@ -11,7 +11,7 @@ import java.util.List;
 public interface SkieurRepository extends JpaRepository<Skieur, Long> {
 
 
-    List<Skieur> findByAbonnementtypeAbon(TypeAbonnement typeAbonnement);
+    static List<Skieur> findByAbonnementtypeAbon(TypeAbonnement typeAbonnement);
 
     List<Inscription>findByInscriptioncourstypeCours(TypeCours typeCours);
 

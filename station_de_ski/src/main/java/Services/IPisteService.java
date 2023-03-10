@@ -12,4 +12,5 @@ public interface IPisteService {
      Piste getById(Long id);
     void remove(Long id);
 
+    Piste assignPisteToskieur(Long numSieur, Long numPiste);
 }

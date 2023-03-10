@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,5 +31,5 @@ public class Piste implements Serializable {
     private int pente;
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Skieur>skieurs;
+    private List<Skieur> skieurs;
 }

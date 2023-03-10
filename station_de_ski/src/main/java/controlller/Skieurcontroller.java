@@ -5,6 +5,7 @@ import Services.IAbonnementService;
 import Services.ISkieurService;
 import Services.SkieurServiceImp;
 import entities.Abonnement;
+import entities.Piste;
 import entities.Skieur;
 import entities.TypeAbonnement;
 import lombok.RequiredArgsConstructor;
