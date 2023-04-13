@@ -1,15 +1,16 @@
 package Services;
 import Repositories.AbonnementRepository;
+import entities.TypeAbonnement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import entities.Abonnement;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
 @Service
 public class AbonnementServiceImp implements IAbonnementService{
-    //injection de dependence
     @Autowired
     private  AbonnementRepository abonnementRepository;
     @Override
@@ -39,7 +40,21 @@ public class AbonnementServiceImp implements IAbonnementService{
         abonnementRepository.deleteById(id);
     }
 
+    @Override
+    public List<Abonnement> findByTypeAbonnement(TypeAbonnement typeAbonnement) {
+        return null;
+    }
 
+    @Override
+    //public List <Abonnement>findByTypeAbonnement(TypeAbonnement typeAbonnement){ }
+    public List<Abonnement>getSubscriptionByType(TypeAbonnement typeabon){
+        return abonnementRepository.findBytypeAbon(typeabon);
+    }
+    @Override
+    public List<Abonnement> retrieveSubscriptionsByDates(LocalDate startDate,LocalDate endDate){
+
+        return abonnementRepository.findByDateDebutBetween(startDate,endDate);
+    }
 
 }
 

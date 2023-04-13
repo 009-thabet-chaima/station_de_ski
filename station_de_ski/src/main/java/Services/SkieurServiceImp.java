@@ -63,9 +63,14 @@ public class SkieurServiceImp implements ISkieurService{
  skieur.getPistes().add(piste);
  return skieurRepository.save(skieur);
     }
+
     @Override
-        public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
-            return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
-  }
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return null;
+    }
+    //  @Override
+ //      public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
+ //          return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
+ //}
 
 }
