@@ -1,17 +1,13 @@
 package entities;
-
-import entities.Abonnement;
-import entities.Inscription;
-import entities.Piste;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -19,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Skieur")
-public class Skieur {
+public class Skieur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
@@ -29,13 +25,12 @@ private Long id;
     private String prenomS;
     private LocalDate dateNaissance;
     private String ville;
-   @OneToOne
+   @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
    Abonnement abonnement;
 
-@OneToMany
-        (cascade = CascadeType.ALL,mappedBy = "skieur")
-    private Set<Inscription>inscriptions;
-@ManyToMany(mappedBy = "skieurs",cascade = CascadeType.ALL)
+@OneToMany(cascade = CascadeType.ALL,mappedBy = "skieur")
+    private List<Inscription>inscriptions;
+@ManyToMany(cascade = CascadeType.ALL,mappedBy = "skieurs")
     private List<Piste> pistes;
 
 }

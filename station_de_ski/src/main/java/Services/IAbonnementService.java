@@ -9,18 +9,11 @@ import java.util.Optional;
 
 public interface IAbonnementService {
    Abonnement add(Abonnement A);
-    Abonnement update(Abonnement A, Long id);
-
-    List<Abonnement> getAll();
+   Abonnement update(Abonnement A, Long id);
+   List<Abonnement> getAll();
    Abonnement getById(Long id);
-    void remove(Long id);
-
-    List <Abonnement>findByTypeAbonnement(TypeAbonnement typeAbonnement);
-
-    //public List <Abonnement>findByTypeAbonnement(TypeAbonnement typeAbonnement){ }
+   void remove(Long id);
+   // List <Abonnement>findByTypeAbonnement(TypeAbonnement typeAbonnement);
     List<Abonnement>getSubscriptionByType(TypeAbonnement typeabon);
-
-    List<Abonnement> retrieveSubscriptionsByDates(LocalDate startDate,
-
-                                                  LocalDate endDate);
+    List<Abonnement> retrieveSubscriptionsByDates(LocalDate startDate,LocalDate endDate);
 }

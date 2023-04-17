@@ -30,6 +30,6 @@ public class Piste implements Serializable {
     private int longeur;
     private int pente;
     @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
+   @ManyToMany(mappedBy = "pistes",cascade = CascadeType.ALL)
     private List<Skieur> skieurs;
 }

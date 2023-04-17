@@ -14,5 +14,9 @@ public interface ISkieurService {
     void remove(Long id);
 
     Skieur assignSkierToPiste(Long numSkieur, Long numPiste);
+    Skieur assignSkieurToAbon(Long numSkieur, Long numAbon);
+
+    Skieur addSkierAndAssignToCourse(Skieur skieur);
+
     List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
 }

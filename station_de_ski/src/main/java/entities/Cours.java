@@ -13,14 +13,15 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cours")
+@Table(name = "Cours")
 public class Cours {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numCours;
     private int niveau;
     @Enumerated(EnumType.STRING)
-    private TypeCours typeCours;
+    private TypeCours typecours;
+    @Enumerated(EnumType.STRING)
     private Support support;
     private Float prix;
     private int creneau;

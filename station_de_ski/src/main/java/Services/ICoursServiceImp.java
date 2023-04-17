@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class CoursServiceImp implements ICoursService{
+public class ICoursServiceImp implements ICoursService{
     @Autowired
     private CoursRepository coursRepository;
     @Override
-    //traitement qcq
     public Cours add(Cours C){
-       return coursRepository.save(C);
+
+        return coursRepository.save(C);
     }
     @Override
     public Cours update(Cours C){
@@ -26,6 +26,7 @@ public class CoursServiceImp implements ICoursService{
         return coursRepository.findById(id).orElse(null);}
     @Override
     public void remove(Long id){
+
         coursRepository.deleteById(id);
     }
 

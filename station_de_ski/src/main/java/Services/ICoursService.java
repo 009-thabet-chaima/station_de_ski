@@ -10,6 +10,5 @@ public interface ICoursService {
     Cours update(Cours A);
     List<Cours> getAll();
     Cours getById(Long id);
-    //abstract Cours getById(long id);
     void remove(Long id);
 }

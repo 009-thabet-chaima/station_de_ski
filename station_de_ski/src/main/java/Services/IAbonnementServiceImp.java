@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Service
-public class AbonnementServiceImp implements IAbonnementService{
+public class IAbonnementServiceImp implements IAbonnementService{
     @Autowired
     private  AbonnementRepository abonnementRepository;
     @Override
@@ -38,11 +38,6 @@ public class AbonnementServiceImp implements IAbonnementService{
     @Override
     public void remove(Long id){
         abonnementRepository.deleteById(id);
-    }
-
-    @Override
-    public List<Abonnement> findByTypeAbonnement(TypeAbonnement typeAbonnement) {
-        return null;
     }
 
     @Override

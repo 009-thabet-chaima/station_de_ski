@@ -2,6 +2,7 @@ package Services;
 
 import Repositories.PisteRepository;
 import Repositories.SkieurRepository;
+import entities.Abonnement;
 import entities.Piste;
 import entities.Skieur;
 import entities.TypeAbonnement;
@@ -9,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.ArrayList;
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Set;
 
 @Service
-public class SkieurServiceImp implements ISkieurService{
+public class ISkieurServiceImp implements ISkieurService{
     @Autowired
     private PisteRepository pisteRepository;
 @Autowired
@@ -57,13 +57,29 @@ public class SkieurServiceImp implements ISkieurService{
  Piste piste = pisteRepository.findById(numSkieur).orElse(null);
  Assert.notNull(skieur,"piste not found ");
  //traitement
- List<Piste> pistes=skieur.getPistes();
- pistes.add(piste);
- skieur.setPistes(pistes);
- skieur.getPistes().add(piste);
+ //List<Piste> pistes=skieur.getPistes();
+ //pistes.add(piste);
+ //skieur.setPistes(pistes);
+ //skieur.getPistes().add(piste);
  return skieurRepository.save(skieur);
-    }
 
+    //    if(skieurRepository.existsById(numSkieur) && pisteRepository.existsById(numPiste)){
+    //        Skieur s= skieurRepository.findById(numSkieur).get();
+    //        s.addPiste(pisteRepository.findById(numPiste).get());
+    //        return s;
+    //    }
+    //    return null;
+    }
+    @Override
+    public Skieur addSkierAndAssignToCourse(Skieur skieur) {
+        //Créer Abonnement
+        Abonnement a = skieur.getAbonnement();
+        if(a != null && skieur.getInscriptions() != null){
+          //  abonnementRepository.save(a);
+          //  inscriptionRepository.saveAll(skieur.getInscriptions());
+            return skieurRepository.save(skieur);}
+        return null;
+    }
     @Override
     public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
         return null;
@@ -72,5 +88,20 @@ public class SkieurServiceImp implements ISkieurService{
  //      public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement){
  //          return SkieurRepository.findByAbonnementtypeAbon(typeAbonnement);
  //}
+    //return getAll().stream().filter(skieur -> skieur.getAbonnement().getTypeAbon()== typeAbonnement).collect(Collectors.toList());
+    //   return skieurRepository.findByAbonnementTypeAbonJPQL(  //return getAll().stream().filter(skieur -> skieur.getAbonnement().getTypeAbon()== typeAbonnement).collect(Collectors.toList());
+            //           return skieurRepository.findByAbonnementTypeAbonJPQL(typeAbonnement);}
 
+
+    @Override
+    @Transactional
+    public Skieur assignSkieurToAbon(Long numSkieur, Long numAbon) {
+      //  if(skieurRepository.existsById(numSkieur) && abonnementRepository.existsById(numAbon))
+        {
+            Skieur s = skieurRepository.findById(numSkieur).get();
+          //  s.setAbonnement(abonnementRepository.findById(numAbon).get());
+            return s;
+        }
+       // return null;
+    }
 }

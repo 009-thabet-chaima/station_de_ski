@@ -11,5 +11,7 @@ public interface IInscriptionService {
     List<Inscription> getAll();
     Inscription getById(Long id);
     void remove(Long id);
+    Inscription addRegistrationAndAssignToSkierAndCours(Inscription inscription,Long numSkieur,Long numCours);
+
 
 }

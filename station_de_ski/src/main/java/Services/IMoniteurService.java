@@ -1,6 +1,7 @@
 package Services;
 
 import entities.Moniteur;
+import entities.Support;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public interface IMoniteurService  {
     Moniteur getById(Long id);
 
     void remove(Long id);
+    List<Integer> numWeeksCourseOfInstructorBySupport(Long numInstructor, Support support);
 
     Moniteur addInstructorAndAssignToCourse(Moniteur moniteur, Long numCourse);
 }

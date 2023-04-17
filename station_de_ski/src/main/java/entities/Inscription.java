@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "inscription")
-public class Inscription {
+@Table(name = "Inscription")
+public class Inscription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -23,10 +24,10 @@ public class Inscription {
     private int numSemaine;
 
 @ManyToOne
-Cours cours;
+private Cours cours;
 
 @ManyToOne
-Skieur skieur;
+private Skieur skieur;
 
 
 

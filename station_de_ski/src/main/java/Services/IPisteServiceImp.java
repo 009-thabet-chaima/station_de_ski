@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 import java.util.List;
 @Service
 
-public class PisteServiceImp implements IPisteService{
+public class IPisteServiceImp implements IPisteService{
     @Autowired
     private PisteRepository pisteRepository;
     @Autowired
